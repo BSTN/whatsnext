@@ -1,5 +1,5 @@
 <template>
-  <div class="h1 chapter" :class="{ stick: top < 0 }">
+  <div class="h1 chapter" :id="hash" :class="{ stick: top < 0 }">
     <div class="sticky">
       <div class="frame">
         <ContentSlot :use="$slots.default" unwrap="p"></ContentSlot>
@@ -14,10 +14,22 @@
 </template>
 
 <script lang="ts" setup>
+import kebabCase from 'lodash/kebabCase'
 import { useElementBounding } from '@vueuse/core'
 const el = ref(null)
 const { top } = useElementBounding(el)
-
+const slots = useSlots();
+function getTextFromVNode(vnode) {
+  if (typeof vnode.children === 'string') {
+    return vnode.children;
+  } else if (vnode.children.default) {
+    const nodes = vnode.children.default();
+    return nodes.map(getTextFromVNode).join('');
+  }
+}
+const hash = computed(() => {
+  return kebabCase(slots.default().map(getTextFromVNode).join(""))
+})
 </script>
 
 <style lang="less" scoped>

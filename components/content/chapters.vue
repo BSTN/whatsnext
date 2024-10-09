@@ -2,12 +2,14 @@
   <div class="chapters">
     <div class="frame">
       <ClientOnly>
-        <div class="chapter" v-for="chapter in chapters">{{ chapter }}</div>
+        <NuxtLink :to="`#${kebabCase(chapter)}`" class="chapter" v-for="chapter in chapters">{{ chapter }}
+        </NuxtLink>
       </ClientOnly>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import kebabCase from 'lodash/kebabCase'
 
 const chapters = ref([])
 
@@ -34,6 +36,8 @@ if (import.meta.client) {
     font-size: 2rem;
     line-height: 1.2;
     margin-bottom: 1em;
+    display: block;
+    text-decoration: none;
 
     &:before {
       content: "•";
