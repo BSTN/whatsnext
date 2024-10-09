@@ -26,12 +26,7 @@ fields:
 ---
 ::
 
-Het voorkomen van melanoom, een zeer ernstige vorm van huidkanker, vereist
-attentie. De diagnose wordt gewoonlijk gesteld na een zorgvuldige
-onderzoekprocedure, inclusief een biopsie om te bevestigen dat de groei
-kankercellen is. Melanoom manifesteert zich meestal als een nieuw
-moedervlek die significant verandert in grootte, vorm of kleur. Het kan
-ook gepaard gaan met pijnlijke bloedingen.
+Het voorkomen van melanoom, een zeer ernstige vorm van huidkanker, vereist attentie. De diagnose wordt gewoonlijk gesteld na een zorgvuldige onderzoekprocedure, inclusief een biopsie om te bevestigen dat de groei kankercellen is. Melanoom manifesteert zich meestal als een nieuw moedervlek die significant verandert in grootte, vorm of kleur. Het kan ook gepaard gaan met pijnlijke bloedingen.
 
 # Wat is een melanoom?
 
