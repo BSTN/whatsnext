@@ -26,6 +26,13 @@ fields:
 ---
 ::
 
+Het voorkomen van melanoom, een zeer ernstige vorm van huidkanker, vereist
+attentie. De diagnose wordt gewoonlijk gesteld na een zorgvuldige
+onderzoekprocedure, inclusief een biopsie om te bevestigen dat de groei
+kankercellen is. Melanoom manifesteert zich meestal als een nieuw
+moedervlek die significant verandert in grootte, vorm of kleur. Het kan
+ook gepaard gaan met pijnlijke bloedingen.
+
 # Wat is een melanoom?
 
 Een melanoom is een soort huidkanker die ontstaat wanneer er in de huid abnormale cellen zijn, die zich snel delen en uitgroeien tot een tumor. Melanomen worden meestal veroorzaakt door schade aan het DNA van melanocyten (cellen die pigment produceren) door straling, chemische stoffen of virussen.

@@ -1,6 +1,7 @@
 <template>
-  <div class="story-inline">
+  <div class="story-inline" :class="{ waiting }" v-element-visibility="onElementVisibility">
     <div class="frame">
+      <Icon class="loading" icon="eos-icons:three-dots-loading"></Icon>
       <div class="head">
         <div class="image">
           <img :src="images[props.image]">
@@ -18,7 +19,9 @@
 </template>
 
 <script lang="ts" setup>
-
+import { vElementVisibility } from '@vueuse/components'
+import { Icon } from '@iconify/vue'
+const waiting = ref(true)
 const props = defineProps(['image', 'name', 'age', 'description'])
 
 const imagesList = import.meta.glob('@/public/profiles/*.*')
@@ -26,16 +29,22 @@ const images = []
 for (const pad in imagesList) {
   images.push(pad.replace('/public', ''))
 }
+function onElementVisibility(state) {
+  if (state) {
+    setTimeout(() => {
+      waiting.value = false
+    }, 2000)
+  }
+}
+
 </script>
 
 <style lang="less" scoped>
 .story-inline {
   margin-bottom: 4rem;
-
-
-
-
 }
+
+
 
 .frame {
   position: relative;
@@ -45,6 +54,32 @@ for (const pad in imagesList) {
   margin: 0 auto;
   padding: 2rem;
   border-radius: 0.5rem;
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--fg2);
+    font-size: 3rem;
+    margin: 0 0.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+
+    .waiting & {
+      opacity: 1;
+    }
+  }
+}
+
+.head,
+.content {
+  opacity: 1;
+  transition: all 0.5s ease;
+
+  .waiting & {
+    opacity: 0;
+  }
 }
 
 .head {
@@ -69,7 +104,7 @@ for (const pad in imagesList) {
     margin: 2rem;
     background: var(--bg3);
     overflow: hidden;
-    border: 1px solid var(--fg2);
+    border: 2px solid var(--bg3);
 
     img {
       position: absolute;

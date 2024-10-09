@@ -16,7 +16,7 @@ const props = defineProps(['fields'])
 <style lang="less" scoped>
 .profile {
   padding-top: 0rem;
-  padding-bottom: 0rem;
+  padding-bottom: 4rem;
 
   .frame {
     .row();

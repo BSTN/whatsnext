@@ -29,7 +29,6 @@ function getClass(k: number) {
       klas = `type-${i}`
     }
   }
-  console.log(klas)
   return klas
 }
 
