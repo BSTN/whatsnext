@@ -154,13 +154,6 @@ function onElementVisibility(state) {
     padding: 1rem 0 2rem;
     max-width: 100%;
     border-radius: 0;
-
-  }
-
-  .head {
-    img {
-      margin: 1rem;
-    }
   }
 }
 </style>

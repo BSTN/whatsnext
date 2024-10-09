@@ -6,6 +6,7 @@
       <ClientOnly>
         <div class="content" :style="{ transform: `translateY(${y / 2}px)`, opacity: 1 - (y / height) }">
           <h1>{{ props.title }}</h1>
+          <slot></slot>
         </div>
       </ClientOnly>
       <div class="languages">
@@ -59,9 +60,13 @@ const { height } = useWindowSize()
     width: 12em;
     line-height: 1.1;
     text-align: left;
-    margin: 0 auto 0 0;
+    margin: 0 auto 2rem 0;
     font-weight: 500;
     // margin-top: 4rem;
+  }
+
+  :deep(p) {
+    margin: 0 auto 1rem 0;
   }
 }
 

@@ -1,7 +1,7 @@
 ::landing
 ---
 logo: Wat nu?
-title: Jouw persoonlijke gids voor na de diagnose
+title: "Na de diagnose: een persoonlijk overzicht"
 languages:
   nl: Nederlands
   en: English
@@ -46,8 +46,8 @@ data:
   - [[0,100],[5,60],[10,45],[15,10],[20,0]]
 xminmax: [0, 20]
 yminmax: [0, 100]
-xsteps: 5
-ysteps: 12
+xsteps: 4
+ysteps: 10
 ---
 ::
 
