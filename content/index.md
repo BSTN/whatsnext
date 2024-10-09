@@ -52,7 +52,7 @@ data:
 xminmax: [0, 20]
 yminmax: [0, 100]
 xsteps: 5
-ysteps: 10
+ysteps: 12
 ---
 ::
 

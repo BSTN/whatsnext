@@ -66,7 +66,7 @@ const progress = computed(() => {
 const props = defineProps(['data', 'xminmax', 'yminmax', 'xlabel', 'ylabel', 'xsteps', 'ysteps', 'labels'])
 
 function getPosition(k, stepcount, minmax) {
-  return (((minmax[1] - minmax[0]) / stepcount) * (k - 1)) + minmax[0]
+  return ((((minmax[1] - minmax[0]) / stepcount) * (k - 1)) + minmax[0]).toFixed(0)
 }
 function pointStyle(point) {
   return {
