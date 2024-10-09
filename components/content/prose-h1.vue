@@ -67,7 +67,7 @@ const hash = computed(() => {
   font-size: 1rem;
   width: 100%;
   transition: all 0.25s ease;
-  color: var(--fg2);
+  color: var(--fg);
 
   .stick & {
     opacity: 1;

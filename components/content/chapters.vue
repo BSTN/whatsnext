@@ -33,7 +33,7 @@ if (import.meta.client) {
   position: relative;
 
   .chapter {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.2;
     margin-bottom: 1em;
     display: block;
