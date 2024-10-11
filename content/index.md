@@ -10,7 +10,7 @@ languages:
 ::
 
 ::warning
-De volgende informatie is gegenereerd op basis van gegevens en ervaringen verzameld van duizenden patiënten over de afgelopen jaren. Met hulp van Artificiële Intelligentie (AI) is de informatie uitgezocht die van toepassing is op jou en in een leesbare tekst uitgewerkt. 
+De volgende informatie is gegenereerd op basis van jouw profiel in combinatie met gegevens en ervaringen verzameld van duizenden patiënten over de afgelopen jaren. Met hulp van Artificiële Intelligentie (AI) is de informatie uitgezocht die van toepassing is op jou en in een leesbare tekst uitgewerkt. 
 ::
 
 :chapters

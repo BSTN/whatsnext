@@ -32,6 +32,15 @@ if (import.meta.client) {
   margin: 10vh auto;
   position: relative;
 
+  &:before {
+    content: "";
+    border-left: 1px solid var(--fg2);
+    position: absolute;
+    top: 1rem;
+    left: 0.4rem;
+    height: calc(100% - 2rem);
+  }
+
   .chapter {
     font-size: 1.75rem;
     line-height: 1.2;
