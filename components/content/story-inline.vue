@@ -3,7 +3,7 @@
     <div class="frame">
       <Icon class="loading" icon="eos-icons:three-dots-loading"></Icon>
       <div class="head">
-        <div class="image">
+        <div class="image" :class="{ nofilter: props.filter === false }">
           <img :src="images[props.image]">
         </div>
         <div class="info">
@@ -22,7 +22,7 @@
 import { vElementVisibility } from '@vueuse/components'
 import { Icon } from '@iconify/vue'
 const waiting = ref(true)
-const props = defineProps(['image', 'name', 'age', 'description'])
+const props = defineProps(['image', 'name', 'age', 'description', 'filter'])
 
 const imagesList = import.meta.glob('@/public/profiles/*.*')
 const images = []
@@ -104,7 +104,8 @@ function onElementVisibility(state) {
     margin: 2rem;
     background: var(--bg3);
     overflow: hidden;
-    border: 2px solid var(--bg3);
+    // border: 2px solid var(--bg3);
+    // border: 1px solid var(--fg2);
 
     img {
       position: absolute;
@@ -112,25 +113,40 @@ function onElementVisibility(state) {
       top: 0;
       width: 100%;
       height: 100%;
-      // mix-blend-mode: overlay;
+      opacity: 0.5;
+      mix-blend-mode: overlay;
       // mix-blend-mode: multiply;
     }
 
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--bg);
-      mix-blend-mode: lighten;
-    }
+    // &:before,
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background: var(--bg);
+    //   mix-blend-mode: lighten;
+    // }
 
     &:before {
       z-index: 4;
       mix-blend-mode: multiply;
+    }
+
+    &.nofilter {
+      border: 0;
+
+      img {
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      &:before,
+      &:after {
+        content: none;
+      }
     }
   }
 

@@ -10,7 +10,7 @@ languages:
 ::
 
 ::warning
-De volgende informatie is gegenereerd op basis van jouw profiel in combinatie met gegevens en ervaringen verzameld van duizenden patiënten over de afgelopen jaren. Met hulp van Artificiële Intelligentie (AI) is de informatie uitgezocht die van toepassing is op jou en in een leesbare tekst uitgewerkt. 
+De volgende informatie is gegenereerd op basis van uw profiel in combinatie met gegevens en ervaringen verzameld van duizenden patiënten over de afgelopen jaren. Met hulp van Artificiële Intelligentie (AI) is de informatie uitgezocht die van toepassing is op u en vervolgens in een leesbare tekst uitgewerkt. 
 ::
 
 :chapters
@@ -139,7 +139,8 @@ Maar ze heeft ondanks alles haar leven opnieuw opgeschaald. Ze is begonnen met y
 
 ::story-inline
 ---
-image: 10
+image: 11
+filter: false
 name: Ahmed
 age: 48
 description: De dokter zei haar dat als ze te veel tijd in de zon kwam door te brengen, het risico op een nieuwe groei verhoogde.
