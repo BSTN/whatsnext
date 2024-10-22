@@ -2,7 +2,9 @@
   <div class="landing">
     <!-- <MainMenu></MainMenu> -->
     <div class="frame">
-      <TheLogo class="the-logo">{{ props.logo }}</TheLogo>
+      <NuxtLink to="/">
+        <TheLogo class="the-logo">{{ props.logo }}</TheLogo>
+      </NuxtLink>
       <ClientOnly>
         <div class="content" :style="{ transform: `translateY(${y / 2}px)`, opacity: 1 - (y / height) }">
           <h1>{{ props.title }}</h1>
@@ -14,11 +16,14 @@
           {{ item }}
         </div>
       </div>
-      <button class="continue">-></button>
+      <button class="continue">
+        <Icon icon="mdi:arrow-down-circle"></Icon>
+      </button>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
+import { Icon } from '@iconify/vue'
 import { useWindowScroll, useWindowSize } from '@vueuse/core'
 const { y } = useWindowScroll()
 const props = defineProps(['languages', 'title', 'logo'])
@@ -52,6 +57,7 @@ const { height } = useWindowSize()
     font-size: 1rem;
     position: absolute;
     top: 2rem;
+    z-index: 2;
     // right: 0;
   }
 
@@ -74,17 +80,18 @@ button.continue {
   position: absolute;
   bottom: 2rem;
   left: 0;
-  background: var(--fg);
-  color: var(--bg);
-  transform: rotate(90deg);
-  width: 1.5em;
-  height: 1.5em;
   border-radius: 100%;
   text-align: center;
   line-height: 0em;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 0;
+  padding: 0;
+
+  &:hover {
+    background: var(--bg);
+    color: var(--fg);
+  }
 }
 
 .languages {

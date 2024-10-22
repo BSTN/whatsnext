@@ -13,9 +13,10 @@
   color: var(--bg);
   display: inline-block;
   line-height: 1.6;
-  padding: 0 0.5em;
+  padding: 0.125em 0.75em;
   border-radius: 0.25em;
   font-style: italic;
   font-weight: 600;
+  letter-spacing: 0.08em;
 }
 </style>

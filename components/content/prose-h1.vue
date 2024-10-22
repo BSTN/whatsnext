@@ -68,11 +68,14 @@ const hash = computed(() => {
   width: 100%;
   transition: all 0.25s ease;
   color: var(--fg);
+  pointer-events: none;
 
   .stick & {
     opacity: 1;
+    pointer-events: auto;
 
     .hidden & {
+      pointer-events: none;
       opacity: 0;
     }
   }

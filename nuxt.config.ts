@@ -1,10 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n'],
 
   routeRules: {
     '/': { prerender: true }
+  },
+
+  security: {
+    corsHandler: {
+      'origin': '*'
+    }
+  },
+
+  content: {
+    sources: {
+      github: {
+        driver: 'github',
+        repo: 'BSTN/whatsnext-content',
+      }
+    }
+  },
+
+  i18n: {
+    defaultLocale: 'nl'
   },
 
   compatibilityDate: '2024-10-04',
