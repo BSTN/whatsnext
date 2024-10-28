@@ -1,19 +1,28 @@
 <template>
-  <div class="app">
+  <div class="app" :class="[{ top: !nottop, nottop, mounted }, direction]">
     <NuxtPage class="page" />
   </div>
 </template>
 <script lang="ts" setup>
-import { onKeyStroke } from '@vueuse/core';
+import { useWindowScroll } from '@vueuse/core'
+const route = useRoute()
+const router = useRouter()
 
-onKeyStroke(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], (ev) => {
-  if (ev.metaKey || ev.shiftKey || ev.ctrlKey || ev.altKey) return false
-  for (let i = 0; i < 10; i++) {
-    document.documentElement.classList.remove(`colors-${i}`)
-  }
-  if (ev.key !== '0') {
-    document.documentElement.classList.add(`colors-${ev.key}`)
-  }
+// scroll directions
+const direction = ref('')
+const { y } = useWindowScroll()
+let prevy = 0
+const nottop = computed(() => {
+  direction.value = (y.value > prevy) ? 'scroll-down' : 'scroll-up'
+  prevy = y.value
+  return y.value > 150
+})
+// end
+
+const mounted = ref(false)
+
+onMounted(() => {
+  mounted.value = true
 })
 </script>
 <style lang="less">

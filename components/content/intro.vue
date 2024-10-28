@@ -1,7 +1,6 @@
 <template>
   <div class="warning">
     <div class="frame">
-      <Icon class="icon" icon="eos-icons:ai"></Icon>
       <slot></slot>
     </div>
   </div>

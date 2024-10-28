@@ -8,7 +8,7 @@
 </template>
 <script lang="ts" setup>
 const route = useRoute()
-const { pages } = await usePages()
+const { pages, loadList } = await usePages()
 const pageData = computed(() => {
   if (!(page.value in pages.value)) {
     return false
@@ -19,6 +19,10 @@ const pageData = computed(() => {
 })
 const page = computed(() => {
   return String(route.query.id)
+})
+onMounted(() => {
+  // again, to be sure:
+  loadList()
 })
 </script>
 <style lang="less" scoped>

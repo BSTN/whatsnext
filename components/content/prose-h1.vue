@@ -1,10 +1,5 @@
 <template>
-  <div class="h1 chapter" :id="hash" :class="{ stick: top < 0 }">
-    <div class="sticky">
-      <div class="frame">
-        <ContentSlot :use="$slots.default" unwrap="p"></ContentSlot>
-      </div>
-    </div>
+  <div class="h1 chapter" :id="hash">
     <div class="notsticky" ref="el">
       <div class="frame">
         <ContentSlot :use="$slots.default" unwrap="p"></ContentSlot>
@@ -49,35 +44,7 @@ const hash = computed(() => {
   text-align: center;
 }
 
-.frame {
-  // .row();
-}
-
 .notsticky {
   font-size: 2rem;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  opacity: 0;
-  top: 0;
-  z-index: 9;
-  border-bottom: 1px solid var(--bg2);
-  font-size: 1rem;
-  width: 100%;
-  transition: all 0.25s ease;
-  color: var(--fg);
-  pointer-events: none;
-
-  .stick & {
-    opacity: 1;
-    pointer-events: auto;
-
-    .hidden & {
-      pointer-events: none;
-      opacity: 0;
-    }
-  }
 }
 </style>

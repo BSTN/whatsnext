@@ -38,7 +38,6 @@ function getStyle() {
 
   const rowsRange = props.rows || 4
   const totalRange = props.range || 40
-  const gap = props.gap || 1
 
   for (let i = 0; i < rowsRange; i++) {
     rows += '1fr ';
@@ -49,7 +48,6 @@ function getStyle() {
   return {
     'grid-template-rows': rows,
     'grid-template-columns': columns,
-    gap: gap + 'rem'
   }
 }
 
@@ -62,7 +60,8 @@ function getStyle() {
 
 .frame {
   .row();
-  width: var(--pwidth);
+
+  // width: var()
   background: var(--bg2);
   border-radius: 0.5rem;
   overflow: hidden;
@@ -73,6 +72,12 @@ function getStyle() {
   padding: 2rem;
   font-size: 2rem;
   display: grid;
+  gap: 1rem;
+
+  @media (max-width: 50rem) {
+    gap: .5rem;
+    padding: 1rem;
+  }
 }
 
 .labels {

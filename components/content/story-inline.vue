@@ -3,7 +3,7 @@
     <div class="frame">
       <Icon class="loading" icon="eos-icons:three-dots-loading"></Icon>
       <div class="head">
-        <div class="image" :class="{ nofilter: props.filter === false }">
+        <div class="image">
           <img :src="images[props.image]">
         </div>
         <div class="info">

@@ -18,6 +18,7 @@
 import { Icon } from '@iconify/vue'
 const { list, pages, loadList } = await usePages()
 onMounted(() => {
+  console.log('load list')
   loadList()
 })
 </script>
@@ -38,7 +39,7 @@ onMounted(() => {
   aspect-ratio: 3/4;
   background: var(--bg);
   color: var(--fg);
-  padding: 1rem;
+  padding: 1.5rem;
   font-size: 2rem;
   text-decoration: none;
   transition: all 0.5s @easeInOutExpo;

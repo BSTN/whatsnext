@@ -11,3 +11,25 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+// fade menu
+
+.fademenu-enter-active,
+.fademenu-leave-active {
+  transition: all .25s ease;
+  transform: translateX(0rem);
+  &.bg {
+    opacity: .85 !important;
+  }
+}
+
+.fademenu-enter-from,
+.fademenu-leave-to {
+  opacity: 0;
+  &.bg {
+    opacity: 0 !important;
+  }
+  &.menu {
+    transform: translateX(-2rem);
+  }
+}
