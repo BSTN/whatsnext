@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image'],
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    '/page': {ssr: false}
   },
 
   security: {

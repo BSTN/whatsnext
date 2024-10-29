@@ -12,8 +12,8 @@
         </div>
       </ClientOnly>
       <div class="languages">
-        <div class="language" v-for="(item, langcode) in props.languages" :class="[`taal-${langcode}`]"
-          @click="setLocale(String(langcode))">
+        <div class="language" v-for="(item, langcode) in props.languages"
+          :class="[`taal-${langcode}`, { active: String(langcode) === locale }]" @click="setLocale(String(langcode))">
           {{ item }}
         </div>
       </div>
@@ -113,7 +113,7 @@ button.continue {
       opacity: 1;
     }
 
-    &.taal-nl {
+    &.active {
       opacity: 1;
     }
   }
