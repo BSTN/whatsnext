@@ -75,6 +75,7 @@ onMounted(() => {
   if (import.meta.client) {
     const list = document.body.querySelectorAll('.chapter');
     list.forEach(el => {
+      if (!el?.children[0]?.innerText) return
       const txt = el.children[0].innerText
       offsetList.push({
         top: el.scrollTop + el.getBoundingClientRect().top,

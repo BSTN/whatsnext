@@ -6,8 +6,7 @@
       </div>
       <div class="right">
         <div class="language">
-          <button @click="setLocale('nl'); setLocaleCookie('nl')"
-            :class="{ active: locale === 'nl' }">Nederlands</button>
+          <button @click="setLocale('nl')" :class="{ active: locale === 'nl' }">Nederlands</button>
           <button @click="setLocale('en')" :class="{ active: locale === 'en' }">English</button>
         </div>
       </div>

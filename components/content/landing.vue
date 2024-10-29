@@ -12,7 +12,8 @@
         </div>
       </ClientOnly>
       <div class="languages">
-        <div class="language" v-for="(item, langcode) in props.languages" :class="[`taal-${langcode}`]">
+        <div class="language" v-for="(item, langcode) in props.languages" :class="[`taal-${langcode}`]"
+          @click="setLocale(String(langcode))">
           {{ item }}
         </div>
       </div>
@@ -25,6 +26,7 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
 import { useWindowScroll, useWindowSize } from '@vueuse/core'
+const { setLocale, locale } = useI18n()
 const { y } = useWindowScroll()
 const props = defineProps(['languages', 'title', 'logo'])
 const { height } = useWindowSize()

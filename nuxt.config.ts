@@ -31,11 +31,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     defaultLocale: 'nl',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root' // recommended
-    }
+    detectBrowserLanguage: false
   },
 
   compatibilityDate: '2024-10-04',

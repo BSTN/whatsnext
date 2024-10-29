@@ -1,8 +1,7 @@
 <template>
   <main>
-    {{ page }} {{ locale }}
     <transition name="fade">
-      <ContentRendererMarkdown :value="pageData.data" v-if="pageData && !pageData.loading" :key="page" />
+      <ContentRendererMarkdown :value="pageData.data" v-if="pageData && !pageData.loading" :key="page + locale" />
     </transition>
   </main>
 </template>
@@ -20,10 +19,11 @@ const pageData = computed(() => {
   return pages.value[page.value]
 })
 const page = computed(() => {
-  if (!Object.keys(pages.value).find(x => x === `${route.query.id}.${locale}.md`)) {
+  if (!Object.keys(pages.value).find(x => x === `${route.query.id}.${locale.value}.md`)) {
+    console.log('language not found', Object.keys(pages.value))
     return String(route.query.id + '.nl.md')
   }
-  return String(`${route.query.id}.${locale}.md`)
+  return String(`${route.query.id}.${locale.value}.md`)
 })
 onMounted(() => {
   console.log('onmounted', locale.value)
