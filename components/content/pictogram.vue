@@ -174,7 +174,6 @@ function getStyle() {
   }
 
   &.type-1 {
-    // opacity: .05;
     color: var(--bg3);
   }
 
