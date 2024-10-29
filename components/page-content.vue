@@ -1,14 +1,15 @@
 <template>
   <main>
     <transition name="fade">
-      <ContentRendererMarkdown :value="pageData.data" v-if="pageData && !pageData.loading"
-        :key="String(route.query.id)" />
+      <ContentRendererMarkdown :value="pageData.data" v-if="pageData && !pageData.loading" :key="page" />
     </transition>
   </main>
 </template>
 <script lang="ts" setup>
 const route = useRoute()
 const { pages, loadList } = await usePages()
+const { locale } = useI18n()
+
 const pageData = computed(() => {
   if (!(page.value in pages.value)) {
     return false
@@ -18,7 +19,10 @@ const pageData = computed(() => {
   return pages.value[page.value]
 })
 const page = computed(() => {
-  return String(route.query.id)
+  if (!Object.keys(pages.value).find(x => x === `${route.query.id}.${locale}.md`)) {
+    return String(route.query.id + '.nl.md')
+  }
+  return String(`${route.query.id}.${locale}.md`)
 })
 onMounted(() => {
   // again, to be sure:

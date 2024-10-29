@@ -1,15 +1,24 @@
 <template>
-  <div class="pictogram">
-    <div class="frame">
-      <div class="grid" :style="getStyle()">
-        <div class="icon" v-for="k in props.range" :class="getClass(k)">
-          <Icon icon="fa6-solid:person"></Icon>
+  <div class="pictogram" :class="{ open, button: props.button }">
+    <div class="buttonframe" v-if="props.button">
+      <button @click="open = true">{{ props.buttontext }}</button>
+    </div>
+    <div class="fullscreenframe" v-if="open || !props.button">
+      <button @click="open = false" v-if="props.button" class="close">
+        <icon icon="iconamoon:close-bold"></icon>
+      </button>
+      <div class="frame">
+        <button @click="open = true"></button>
+        <div class="grid" :style="getStyle()">
+          <div class="icon" v-for="k in props.range" :class="getClass(k)">
+            <Icon icon="fa6-solid:person"></Icon>
+          </div>
         </div>
-      </div>
-      <div class="labels">
-        <div class="label" v-for="label in props.labels">
-          <Icon icon="fa6-solid:person"></Icon>
-          <div class='text'>{{ label }}</div>
+        <div class="labels">
+          <div class="label" v-for="label in props.labels">
+            <Icon icon="fa6-solid:person"></Icon>
+            <div class='text'>{{ label }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -18,7 +27,8 @@
 
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
-const props = defineProps(['range', 'data', 'rows', 'labels', 'gap'])
+const props = defineProps(['range', 'data', 'rows', 'labels', 'gap', 'button', 'buttontext'])
+const open = ref(false)
 
 function getClass(k: number) {
   let klas = ''
@@ -56,6 +66,45 @@ function getStyle() {
 <style lang="less" scoped>
 .pictogram {
   padding: 2rem 0;
+}
+
+.buttonframe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background: var(--bg2);
+    padding: 1rem 2rem;
+
+    &:hover {
+      color: var(--fg);
+      background: var(--bg3);
+    }
+  }
+}
+
+.button .fullscreenframe {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
 }
 
 .frame {

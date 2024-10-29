@@ -1,12 +1,13 @@
 import { Octokit } from 'octokit';
 import markdownParser from "@nuxt/content/transformers/markdown";
 
-
+const alldocs = ref([])
 const list = ref([])
 const pages = ref({})
 const loadingStarted = ref(false)
 
 async function loadList() {
+  list.value = []
   const octokit = new Octokit();
   const { data } = await octokit.rest.repos.getContent({
     owner: 'BSTN',
@@ -14,26 +15,33 @@ async function loadList() {
     path: '/profiles'
   })
   if (!data || !Array.isArray(data)) { return false }
-  list.value = data.filter(x => x.name !== 'README.md')
+  const l = data.filter(x => x.name !== 'README.md')
+  for (let i in l) {
+    l[i].langname = l[i].name.split('.')[0]
+    if (!list.value.find(x => x.langname === l[i].langname)) {
+      list.value.push(l[i])
+    }
+  }
+  alldocs.value = l
   loadFiles()
 }
 
 async function loadFiles() {
-  for (let i in list.value) {
+  for (let i in alldocs.value) {
     const pageObject = {
       loading: true,
       error: '',
       data: null,
       raw: ''
     }
-    pages.value[list.value[i].name] = pageObject
-    fetch(list.value[i].download_url).then(x => x.text()).then(async x => {
-      pages.value[list.value[i].name].raw = x
-      pages.value[list.value[i].name].data = await markdownParser.parse(list.value[i].name, x)
-      pages.value[list.value[i].name].loading = false
+    pages.value[alldocs.value[i].name] = pageObject
+    fetch(alldocs.value[i].download_url).then(x => x.text()).then(async x => {
+      pages.value[alldocs.value[i].name].raw = x
+      pages.value[alldocs.value[i].name].data = await markdownParser.parse(alldocs.value[i].name, x)
+      pages.value[alldocs.value[i].name].loading = false
     }).catch(err => {
-      pages.value[list.value[i].name].loading = false
-      pages.value[list.value[i].name].error = err
+      pages.value[alldocs.value[i].name].loading = false
+      pages.value[alldocs.value[i].name].error = err
     })
   }
 }
@@ -46,6 +54,7 @@ export async function usePages () {
   return {
     list,
     loadList,
-    pages
+    pages,
+    alldocs
   }
 }

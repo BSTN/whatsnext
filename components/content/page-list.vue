@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <div class="page-list">
-      <NuxtLink :to="`/page?id=${item.name}`" v-for="item in list" class="page theme"
+      <NuxtLink :to="`/page?id=${item.langname}`" v-for="item in list" class="page theme"
         :class="[`theme-${pages[item.name]?.data?.theme}`]">
         <div class="info" v-if="!pages[item.name].loading">
           {{ pages[item.name].data.title }}
