@@ -1,5 +1,6 @@
 <template>
   <main>
+    {{ page }} {{ locale }}
     <transition name="fade">
       <ContentRendererMarkdown :value="pageData.data" v-if="pageData && !pageData.loading" :key="page" />
     </transition>
@@ -25,8 +26,9 @@ const page = computed(() => {
   return String(`${route.query.id}.${locale}.md`)
 })
 onMounted(() => {
+  console.log('onmounted', locale.value)
   // again, to be sure:
-  loadList()
+  loadList().catch(console.warn)
 })
 </script>
 <style lang="less" scoped>

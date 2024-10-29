@@ -1,13 +1,13 @@
 <template>
   <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]">
-    <ContentDoc :path="pad" />
+    <ContentDoc :path="pad" :key="pad" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 const route = useRoute()
-const { locale } = useI18n()
+const { locale, getLocaleCookie } = useI18n()
 
 const pad = computed(() => {
   const langcode = locale.value
@@ -28,6 +28,7 @@ const nottop = computed(() => {
 const mounted = ref(false)
 
 onMounted(() => {
+  console.log(getLocaleCookie())
   mounted.value = true
   for (let i = 0; i < 10; i++) {
     document.documentElement.classList.remove(`theme`)

@@ -1,6 +1,8 @@
 import { Octokit } from 'octokit';
 import markdownParser from "@nuxt/content/transformers/markdown";
 
+const runtimeConfig = useRuntimeConfig()
+
 const alldocs = ref([])
 const list = ref([])
 const pages = ref({})
@@ -8,7 +10,7 @@ const loadingStarted = ref(false)
 
 async function loadList() {
   list.value = []
-  const octokit = new Octokit();
+  const octokit = new Octokit({auth: runtimeConfig.public.githubtoken});
   const { data } = await octokit.rest.repos.getContent({
     owner: 'BSTN',
     repo: "whatsnext-content",
@@ -49,7 +51,7 @@ async function loadFiles() {
 export async function usePages () {
   if (!loadingStarted.value) {
     loadingStarted.value = true
-    await loadList()
+    await loadList().catch(console.warn)
   }
   return {
     list,

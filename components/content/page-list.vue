@@ -17,9 +17,9 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
 const { list, pages, loadList } = await usePages()
+const { locale } = useI18n()
 onMounted(() => {
-  console.log('load list')
-  loadList()
+  loadList().catch(console.warn)
 })
 </script>
 

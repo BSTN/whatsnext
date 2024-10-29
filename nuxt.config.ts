@@ -22,8 +22,20 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    public: {
+      githubtoken: process.env.githubtoken
+    }
+  },
+
   i18n: {
-    defaultLocale: 'nl'
+    strategy: 'no_prefix',
+    defaultLocale: 'nl',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root' // recommended
+    }
   },
 
   compatibilityDate: '2024-10-04',
