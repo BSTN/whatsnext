@@ -9,17 +9,13 @@
 </template>
 
 <script lang="ts" setup>
-import { asyncComputed, useWindowScroll } from '@vueuse/core'
+import { useWindowScroll } from '@vueuse/core'
 const route = useRoute()
 const { locale } = useI18n()
 
-const pad = asyncComputed(async () => {
+const pad = computed(async () => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
-  const found = await queryContent(p + '.' + langcode).findOne().catch(console.warn)
-  if (!found) {
-    return p + '.nl'
-  }
   return p + '.' + langcode
 })
 
