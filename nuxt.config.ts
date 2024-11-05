@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     sources: {
       content: {
         driver: 'fs',
-        base: './repos/content'
+        base: resolve('./repos/content')
       }
     }
   },

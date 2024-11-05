@@ -1,5 +1,7 @@
 <template>
-  <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]" :path="$route.fullPath">
+  <div class="index theme"
+    :class="[{ top: !nottop, nottop, mounted, themelanding: $route.fullPath === '/' }, direction]"
+    :path="$route.fullPath">
     <ContentDoc :path="pad" :key="pad" />
   </div>
 </template>
