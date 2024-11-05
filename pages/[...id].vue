@@ -1,5 +1,5 @@
 <template>
-  <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]">
+  <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]" :path="$route.fullPath">
     <ContentDoc :path="pad" :key="pad" />
   </div>
 </template>
@@ -28,7 +28,6 @@ const nottop = computed(() => {
 const mounted = ref(false)
 
 onMounted(() => {
-  console.log(getLocaleCookie())
   mounted.value = true
   for (let i = 0; i < 10; i++) {
     document.documentElement.classList.remove(`theme`)
@@ -41,6 +40,10 @@ onMounted(() => {
 .index {
   opacity: 0;
   transition: opacity 1s ease;
+
+  &[path="/"] {
+    padding-bottom: 16rem;
+  }
 
   &.mounted {
     opacity: 1;

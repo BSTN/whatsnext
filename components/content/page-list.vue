@@ -1,17 +1,15 @@
 <template>
-  <ClientOnly>
-    <div class="page-list">
-      <NuxtLink :to="`/page?id=${item.langname}`" v-for="item in list" class="page theme"
-        :class="[`theme-${pages[item.name]?.data?.theme}`]">
-        <div class="info" v-if="!pages[item.name].loading">
-          {{ pages[item.name].data.title }}
-        </div>
-        <button>
-          <icon icon="mdi:arrow-right-circle"></icon>
-        </button>
-      </NuxtLink>
-    </div>
-  </ClientOnly>
+  <div class="page-list">
+    <NuxtLink :to="`/page?id=${item.langname}`" v-for="item in list" class="page theme"
+      :class="[`theme-${pages[item.name]?.data?.theme}`]">
+      <div class="info" v-if="!pages[item.name].loading">
+        {{ pages[item.name].data.title }}
+      </div>
+      <button>
+        <icon icon="mdi:arrow-right-circle"></icon>
+      </button>
+    </NuxtLink>
+  </div>
 </template>
 
 <script lang="ts" setup>

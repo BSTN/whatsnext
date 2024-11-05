@@ -29,6 +29,6 @@ onMounted(() => {
 @import '@/less/elements.less';
 
 .app {
-  margin: 0 auto 10rem;
+  margin: 0 auto 0;
 }
 </style>

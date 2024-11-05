@@ -1,7 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { resolve } from "node:path";
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image'],
+  modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image',['./modules/github.module', {
+    repositories: [{
+    name: 'content',
+    owner: 'BSTN',
+    repo: 'whatsnext-content',
+    }]}]],
 
   routeRules: {
     '/': { prerender: true },
@@ -16,17 +23,15 @@ export default defineNuxtConfig({
 
   content: {
     sources: {
-      github: {
-        driver: 'github',
-        repo: 'BSTN/whatsnext-content',
+      content: {
+        driver: 'fs',
+        base: resolve(__dirname, 'repos/content')
       }
     }
   },
 
   runtimeConfig: {
-    public: {
-      githubtoken: process.env.githubtoken
-    }
+    githubtoken: process.env.githubtoken
   },
 
   i18n: {
