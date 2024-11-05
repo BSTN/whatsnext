@@ -2,18 +2,19 @@
   <div class="index theme"
     :class="[{ top: !nottop, nottop, mounted, themelanding: $route.fullPath === '/' }, direction]"
     :path="$route.fullPath">
-    <ContentDoc :path="pad" :key="pad" />
+    <!-- <ContentDoc :path="pad" :key="pad" /> -->
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 const route = useRoute()
-const { locale, getLocaleCookie } = useI18n()
+const { locale } = useI18n()
 
 const pad = computed(() => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
+  console.log(p + '.' + langcode)
   return p + '.' + langcode
 })
 
