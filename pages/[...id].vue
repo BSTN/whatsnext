@@ -2,7 +2,11 @@
   <div class="index theme"
     :class="[{ top: !nottop, nottop, mounted, themelanding: $route.fullPath === '/' }, direction]"
     :path="$route.fullPath">
-    <!-- <ContentDoc :path="pad" :key="pad" /> -->
+    <ContentDoc :path="pad" :key="pad">
+      <template #not-found>
+        <h1>Document not found</h1>
+      </template>
+    </ContentDoc>
   </div>
 </template>
 
