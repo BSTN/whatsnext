@@ -1,6 +1,6 @@
 <template>
   <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]" :path="$route.fullPath">
-    <ContentDoc :path="pad" :key="pad" v-if="pad">
+    <ContentDoc :path="pad" :key="pad">
       <template #not-found>
         <h1>Document not found</h1>
       </template>
