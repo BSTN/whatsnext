@@ -1,7 +1,7 @@
 
 
 
-export const useProfiles = () => {
+export const useProfiles = (folder:string) => {
   const { locale } = useI18n()
   const { data, error, status } = useFetch('/api/profiles')
   const route = useRoute()
@@ -21,9 +21,9 @@ export const useProfiles = () => {
   const list = computed(() => {
     const tlist = {}
     if (!data.value) return tlist
-    if (!route.query?.type || !(route.query.type in data.value)) return tlist
-    for (let i in data.value[route.query.type]) {
-      const x = data.value[route.query.type][i]
+    if (!folder || !(folder in data.value)) return tlist
+    for (let i in data.value[folder]) {
+      const x = data.value[folder][i]
       if (x[locale.value]) {
         tlist[i] = x[locale.value]
       } else {

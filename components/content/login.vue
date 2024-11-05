@@ -28,7 +28,6 @@
         </div>
         <Profile class="profile" v-if="profile && !focus && !loading" :fields="profile"></Profile>
       </div>
-
       <div class="continue" v-if="typeof active === 'object' && !loading && !focus">
         <button @click="$router.push(`/${active.type}/${active.name}`)">Ga verder -></button>
       </div>
@@ -40,7 +39,8 @@
 import { vOnClickOutside } from '@vueuse/components'
 import { Icon } from '@iconify/vue'
 const route = useRoute()
-const { list } = useProfiles()
+const props = defineProps(['folder'])
+const { list } = useProfiles(props.folder || 'oncology')
 const focus = ref(false)
 const active = ref(false)
 const loading = ref(false)
