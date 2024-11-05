@@ -2,7 +2,7 @@
   <div class="index theme"
     :class="[{ top: !nottop, nottop, mounted, themelanding: $route.fullPath === '/' }, direction]"
     :path="$route.fullPath">
-    <ContentDoc :path="pad" :key="pad">
+    <ContentDoc :path="pad" :key="pad" v-if="pad">
       <template #not-found>
         <h1>Document not found</h1>
       </template>
@@ -11,14 +11,17 @@
 </template>
 
 <script lang="ts" setup>
-import { useWindowScroll } from '@vueuse/core'
+import { asyncComputed, useWindowScroll } from '@vueuse/core'
 const route = useRoute()
 const { locale } = useI18n()
 
-const pad = computed(() => {
+const pad = asyncComputed(async () => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
-  console.log(p + '.' + langcode)
+  const found = await queryContent(p + '.' + langcode).findOne()
+  if (!found) {
+    return p + '.nl'
+  }
   return p + '.' + langcode
 })
 
