@@ -13,7 +13,7 @@ import { useWindowScroll } from '@vueuse/core'
 const route = useRoute()
 const { locale } = useI18n()
 
-const pad = computed(async () => {
+const pad = computed(() => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
   return p + '.' + langcode
