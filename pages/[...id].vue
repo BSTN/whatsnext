@@ -18,7 +18,7 @@ const { locale } = useI18n()
 const pad = asyncComputed(async () => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
-  const found = await queryContent(p + '.' + langcode).findOne()
+  const found = await queryContent(p + '.' + langcode).findOne().catch(console.warn)
   if (!found) {
     return p + '.nl'
   }
