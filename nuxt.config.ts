@@ -22,6 +22,9 @@ export default defineNuxtConfig({
   },
 
   content: {
+    ignores: [
+      'README'
+    ],
     sources: {
       content: {
         driver: 'fs',
