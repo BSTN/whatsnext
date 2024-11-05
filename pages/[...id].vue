@@ -12,11 +12,6 @@
 import { useWindowScroll } from '@vueuse/core'
 const route = useRoute()
 const { locale } = useI18n()
-definePageMeta({
-  documentDriven: {
-    page: false, // Keep page fetching enabled surround: false // Disable surround fetching 
-  }
-})
 
 const pad = computed(() => {
   const langcode = locale.value

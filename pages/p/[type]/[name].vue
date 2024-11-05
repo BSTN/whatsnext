@@ -10,13 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  documentDriven: {
-    page: false, // Keep page fetching enabled surround: false // Disable surround fetching 
-  }
-})
 const route = useRoute()
-const { current } = useProfiles()
+const { current } = useProfiles(String(route.params.type))
 const loaded = ref(false)
 if (import.meta.client) {
   onMounted(() => {
