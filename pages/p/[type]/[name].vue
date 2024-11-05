@@ -10,6 +10,11 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  documentDriven: {
+    page: false, // Keep page fetching enabled surround: false // Disable surround fetching 
+  }
+})
 const route = useRoute()
 const { current } = useProfiles()
 const loaded = ref(false)
