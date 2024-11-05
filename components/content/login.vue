@@ -29,7 +29,7 @@
         <Profile class="profile" v-if="profile && !focus && !loading" :fields="profile"></Profile>
       </div>
       <div class="continue" v-if="typeof active === 'object' && !loading && !focus">
-        <button @click="$router.push(`/${active.type}/${active.name}`)">Ga verder -></button>
+        <button @click="$router.push(`/p/${active.type}/${active.name}`)">Ga verder -></button>
       </div>
     </div>
   </div>
