@@ -19,6 +19,7 @@ export default defineNuxtModule({
   setup(moduleOptions, nuxt) {
 
     nuxt.hook('build:before', async () => {
+      console.log("VERCEL ENV:", process.env.VERCEL)
       // check if github options are defined
       console.log(JSON.stringify(moduleOptions,null,' '))
       // if (!('githuboptions' in nuxt.options) || !nuxt.options.githuboptions || !Array.isArray(nuxt.options.githuboptions)) return
