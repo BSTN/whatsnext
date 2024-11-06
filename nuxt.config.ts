@@ -2,6 +2,7 @@
 import { resolve } from "node:path";
 
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: false },
   modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image',['./modules/github.module', {
     repositories: [{
@@ -22,9 +23,6 @@ export default defineNuxtConfig({
   },
 
   content: {
-    experimental: {
-      clientDB: true
-    },
     ignores: [
       'README'
     ],
