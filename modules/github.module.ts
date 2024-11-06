@@ -42,7 +42,7 @@ async function getRepo({ owner, repo, local, name }: { owner: string, repo: stri
   }
   
   const githubtoken = process.env.githubtoken;
-  const rootdir = resolve(process.env.vercel ? '/tmp' : __dirname, '../repos')
+  const rootdir = resolve(process.env.vercel ? process.cwd() : __dirname, '../repos')
   const dir = resolve(rootdir, name)
   const infoPath = resolve(dir, '.info.json')
   const octokit = new Octokit({ auth: githubtoken })

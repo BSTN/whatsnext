@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     sources: {
       content: {
         driver: 'fs',
-        base: resolve(process.env.VERCEL ? '/tmp' : __dirname, './repos/content/')
+        base: resolve(process.env.VERCEL ? process.cwd() : __dirname, './repos/content/')
       }
     }
   },
