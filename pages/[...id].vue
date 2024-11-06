@@ -1,5 +1,5 @@
 <template>
-  <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction]" :path="$route.fullPath">
+  <div class="index" :class="[{ top: !nottop, nottop, mounted }, direction, landingclass]" :path="$route.fullPath">
     <ContentDoc :path="pad" :key="pad">
       <template #not-found>
         <h1>Document not found</h1>
@@ -17,6 +17,11 @@ const pad = computed(() => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
   return p + '.' + langcode
+})
+
+const landingclass = computed(() => {
+  if (route.path === '/') { return 'theme themelanding' }
+  return ''
 })
 
 // scroll directions

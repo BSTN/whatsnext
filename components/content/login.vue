@@ -21,6 +21,7 @@
         </loadingBar>
         <!-- fictional profiles -->
         <div class="demo-data" v-if="list && focus">
+          <div class="loading" v-if="status !== 'success'">loading...</div>
           <div class="demo" v-for="item in list" @click="setActive(item)">
             <div class="name">{{ item.data.title }}</div>
             <Icon icon="heroicons:user-16-solid"></Icon>
@@ -40,7 +41,7 @@ import { vOnClickOutside } from '@vueuse/components'
 import { Icon } from '@iconify/vue'
 const route = useRoute()
 const props = defineProps(['folder'])
-const { list } = useProfiles(props.folder || 'oncology')
+const { list, status } = useProfiles(props.folder || 'oncology')
 const focus = ref(false)
 const active = ref(false)
 const loading = ref(false)
@@ -138,6 +139,11 @@ onMounted(async () => {
   border: 1px solid var(--bc);
   border-radius: 0.25rem;
   overflow: hidden;
+
+  .loading {
+    color: var(--fg2);
+    padding: 0.5rem 1rem;
+  }
 
   .demo {
     cursor: pointer;

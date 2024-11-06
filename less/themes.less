@@ -1,5 +1,7 @@
 :root {
-  --bg: #ebeade;
+  --font-family: 'Inter', 'helvetica neue', Helvetica, sans-serif;
+  --line-height: 1.6;
+  --bg: #ecece7;
   --fg: #063363;
   --fg2: #637481;
   --link: #b1004d;
@@ -29,10 +31,13 @@
   --shadow: #00000033;
   --bg2: color-mix(in srgb, var(--bg) 90%, #000);
   --bg3: color-mix(in srgb, var(--bg) 75%, #000);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  color: var(--fg);
+  background: var(--bg);
   &.theme-1 {
     --bg: #653a21;
   }
-  color: var(--fg);
   
   &.theme {
     --bg: #653a21;
@@ -65,8 +70,20 @@
     --fg: #27395d;
     --fg2: #586881;
   }
+
   &.themelanding {
-    --bg: #00f;
+    --bg: #ffffff;
+    --bg2: #e9e9e9;
+    --fg: #222428;
+    --fg2: #8b6c5b;
+    --link: #184c7c;
+    --line-height: 1.6;
+    --font-family: 'Noto Serif', serif;
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
   }
 }
 

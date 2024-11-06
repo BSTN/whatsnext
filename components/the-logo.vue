@@ -18,5 +18,6 @@
   font-style: italic;
   font-weight: 600;
   letter-spacing: 0.08em;
+  font-family: 'Inter', 'helvetica neue', Helvetica, sans-serif;
 }
 </style>

@@ -19,7 +19,8 @@
   align-items: flex-end;
   align-items: center;
   margin-bottom: 4rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  width: 100%;
 
   .slot {
     .row();

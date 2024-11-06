@@ -4,12 +4,12 @@
 @import '@/less/themes.less';
 
 html, body {
-  font-family: 'Inter', 'helvetica neue', Helvetica, sans-serif;
+  font-family: var(--font-family);
   font-weight: 500;
   font-size: 20px;
   background: var(--bg);
   color:var(--fg);
-  line-height: 1.6;
+  line-height: var(--line-height);
   scroll-behavior: smooth;
   @media (max-width: 1200px) {
     font-size: 18px;
@@ -23,6 +23,7 @@ html, body {
   font-family: inherit;
   letter-spacing: inherit;
   font-size: inherit;
+  line-height: inherit;
   color: inherit;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
