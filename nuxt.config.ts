@@ -1,8 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { resolve } from "node:path";
+// import { resolve } from "node:path";
+import { createResolver } from '@nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  ssr: false,
   devtools: { enabled: false },
   modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image',['./modules/github.module', {
     repositories: [{
@@ -29,7 +31,7 @@ export default defineNuxtConfig({
     sources: {
       content: {
         driver: 'fs',
-        base: resolve(__dirname, 'repos/content/')
+        base: resolve(__dirname, './repos/content/')
       }
     }
   },

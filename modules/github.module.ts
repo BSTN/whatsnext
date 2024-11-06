@@ -4,9 +4,9 @@ import { pipeline } from "node:stream/promises";
 import fs from "fs";
 import * as tar from 'tar'
 import dotenv from 'dotenv';
-import { resolve } from "node:path";
 dotenv.config();
 
+const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtModule({
   meta: {
@@ -17,8 +17,6 @@ export default defineNuxtModule({
     }
   },
   setup(moduleOptions, nuxt) {
-
-    const { resolve } = createResolver(import.meta.url)
 
     nuxt.hook('build:before', async () => {
       // check if github options are defined
