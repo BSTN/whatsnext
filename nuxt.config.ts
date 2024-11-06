@@ -22,6 +22,9 @@ export default defineNuxtConfig({
   },
 
   content: {
+    experimental: {
+      clientDB: true
+    },
     ignores: [
       'README'
     ],
