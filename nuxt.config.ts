@@ -4,7 +4,6 @@ import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
 
-console.log('####dirname:', resolve( __dirname, 'repos/content/'))
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
@@ -31,9 +30,14 @@ export default defineNuxtConfig({
       'README'
     ],
     sources: {
-      content: {
-        driver: 'fs',
-        base: resolve( __dirname, 'repos/content/')
+      // content: {
+      //   driver: 'fs',
+      //   base: resolve( __dirname, 'repos/content')
+      // }
+      github: {
+        driver: 'github',
+        repo: 'BSTN/whatsnext-content',
+        brach: 'main'
       }
     }
   },

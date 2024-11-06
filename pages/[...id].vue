@@ -16,7 +16,6 @@ const { locale } = useI18n()
 const pad = computed(() => {
   const langcode = locale.value
   const p = route.path === '/' ? '/index' : route.path
-  console.log(p + '.' + langcode)
   return p + '.' + langcode
 })
 
