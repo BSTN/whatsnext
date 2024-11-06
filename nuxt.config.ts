@@ -7,18 +7,23 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image',['./modules/github.module', {
+  modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image', ['./modules/github.module', {
     repositories: [{
     name: 'content',
     owner: 'BSTN',
     repo: 'whatsnext-content',
-    }]}]],
+    }]}], '@nuxtjs/google-fonts'],
 
   routeRules: {
     '/': { prerender: true },
     '/page': {ssr: false}
   },
 
+  googleFonts: {
+    families: {
+      'Noto Serif': true
+    }
+  },
   security: {
     corsHandler: {
       'origin': '*'
