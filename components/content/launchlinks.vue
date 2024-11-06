@@ -10,6 +10,11 @@
 
 <style lang="less" scoped>
 .launchlinks {
+  display: flex;
+  width: var(--pwidth);
+  margin: 2rem auto;
+  gap: 2rem;
+
   :deep(a) {
     display: block;
     background: var(--fg);
