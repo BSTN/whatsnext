@@ -4,6 +4,8 @@ import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
 
+console.log('####dirname:', resolve( __dirname, 'repos/content/'))
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ['@nuxt/content', 'nuxt-security', '@nuxtjs/i18n', '@nuxt/image',['./modules/github.module', {
