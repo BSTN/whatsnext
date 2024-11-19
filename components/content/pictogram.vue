@@ -1,6 +1,6 @@
 <template>
   <div class="pictogram" :class="{ open, button: props.button }">
-    <div class="buttonframe" v-if="props.button">
+    <div class="buttonframe" v-if="props.button && props.buttontext">
       <button @click="open = true">{{ props.buttontext }}</button>
     </div>
     <div class="fullscreenframe" v-if="open || !props.button">
@@ -8,7 +8,6 @@
         <icon icon="iconamoon:close-bold"></icon>
       </button>
       <div class="frame">
-        <button @click="open = true"></button>
         <div class="grid" :style="getStyle()">
           <div class="icon" v-for="k in props.range" :class="getClass(k)">
             <Icon icon="fa6-solid:person"></Icon>
