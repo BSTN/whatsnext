@@ -67,6 +67,8 @@ function getStyle() {
   padding: 2rem 0;
 }
 
+
+
 .buttonframe {
   display: flex;
   align-items: center;
