@@ -23,6 +23,7 @@
         <BasicBarChart v-bind="props" v-if="tab === 'bars'" />
         <PicChart v-bind="props" v-if="tab === 'pic'" />
       </div>
+
     </div>
   </div>
 </template>
